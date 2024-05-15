@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/favicon/homepage.ico">
+    <title>Explore</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/myscript.js"></script>
+</head>
+<body>
+  <?php 
+    session_start(); 
+    if(isset($_SESSION['username'])) { 
+  ?>
+  <div class="Nav_bar">
+    <ul>
+      <li><a href="index.html" class="navigacija">Istraži</a></li>
+      <li><a href="page2.html" class="navigacija">New York</a></li>
+      <li><a href="page3.html" class="navigacija">Paris</a></li>
+      <li><a href="page4.html" class="navigacija">Tokyo</a></li>
+    </ul>
+  </div>
+
+  <div style="position: fixed; top: 10px; right: 10px;">
+    <div id="username_display" onclick="deleteUser()" style="cursor: pointer;"> <?php echo $_SESSION['username']; ?></div>
+  </div>
+  <?php 
+    } else {
+  ?>
+  <button id="login_btn" onclick="document.getElementById('loginModal').style.display='block'" class="login-btn">Login</button>
+  <?php 
+    }
+  ?>
+
+  <button onclick="topFunction()" id="myBtn" title="Go to top"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button> 
+
+<div id="loginModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="document.getElementById('loginModal').style.display='none'">&times;</span>
+    <form class="form" method="post" action="select_file.php">
+      <div class="card">
+        <div class="card2">
+          <p id="heading">Login</p>
+          <div class="field">
+            <svg
+              viewBox="0 0 16 16"
+              fill="currentColor"
+              height="16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+              class="input-icon"
+            >
+              <path
+                d="M13.106 7.222c0-2.967-2.249-5.032-5.482-5.032-3.35 0-5.646 2.318-5.646 5.702 0 3.493 2.235 5.708 5.762 5.708.862 0 1.689-.123 2.304-.335v-.862c-.43.199-1.354.328-2.29.328-2.926 0-4.813-1.88-4.813-4.798 0-2.844 1.921-4.881 4.594-4.881 2.735 0 4.608 1.688 4.608 4.156 0 1.682-.554 2.769-1.416 2.769-.492 0-.772-.28-.772-.76V5.206H8.923v.834h-.11c-.266-.595-.881-.964-1.6-.964-1.4 0-2.378 1.162-2.378 2.823 0 1.737.957 2.906 2.379 2.906.8 0 1.415-.39 1.709-1.087h.11c.081.67.703 1.148 1.503 1.148 1.572 0 2.57-1.415 2.57-3.643zm-7.177.704c0-1.197.54-1.907 1.456-1.907.93 0 1.524.738 1.524 1.907S8.308 9.84 7.371 9.84c-.895 0-1.442-.725-1.442-1.914z"
+              ></path>
+            </svg>
+            <input
+              type="text"
+              class="input-field"
+              placeholder="Username"
+              autocomplete="off"
+              name="username"
+            />
+          </div>
+          <div class="field">
+            <svg
+              viewBox="0 0 16 16"
+              fill="currentColor"
+              height="16"
+              width="16"
+              xmlns="http://www.w3.org/2000/svg"
+              class="input-icon"
+            >
+              <path
+                d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"
+              ></path>
+            </svg>
+            <input type="password" class="input-field" placeholder="Password" name="password" />
+          </div>
+          <div class="btn">
+            <button type="submit" class="button1">Login</button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="tekst_nalovne">
+  <p>Želite li istražiti nove horizonte i otkriti skrivene dragulje svijeta? <br>
+    Došli ste na pravo mjesto! Naša agencija za putovanja nudi nezaboravna iskustva u nekim od najuzbudljivijih gradova širom svijeta.
+    Otvorite oči i krenite u avanturu istraživanja novih gradova, gdje ćete otkriti bogatu kulturu, fascinantnu povijest i nevjerojatne znamenitosti.
+     Bilo da je to šetnja rimskim trgovima, istraživanje egzotičnih uličica Marrakecha ili uranjanje u pulsirajući ritam New Yorka, naša putovanja 
+     pružaju nezaboravne trenutke i doživljaje koji će vas inspirirati i obogatiti.
+    Otvorite svoje vidike i krenite s nama u avanturu života! Naša stručna ekipa će vam pomoći da odaberete savršeno putovanje koje će ispuniti vaše snove i nadmašiti očekivanja.
+    Kamo ćemo krenuti sljedeće? Odredišta su beskrajna, a avantura je neizbježna. Krenite s nama i doživite svijet na potpuno nov način!</p>
+</div>
+<div class="baneri">
+  <div class="newyork">
+    <div class="example">
+      <img src="media/nyc_baner.jpg" alt="New York">
+      <div class="text-overlay">
+        <a href="page2.html">New York</a>
+      </div>
+    </div>
+  </div>
+  <div class="paris">
+    <div class="example">
+      <img src="media/paris_baner.jpg" alt=" Paris">
+      <div class="text-overlay">
+        <a href="page3.html">Paris</a>
+      </div>
+    </div>
+  </div>
+  <div class="tokyo">
+    <div class="example">
+      <img src="media/tokyo_baner.jpg" alt=" Tokyo">
+      <div class="text-overlay">
+        <a href="page4.html">Tokyo</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer_moj">
+  <div class="footerContainer">
+    <div class="socialIcons">
+      <a href="https://www.facebook.com/veleuciliste.u.sibeniku.hr/?locale=hr_HR" target="_blank"><img src="media/facebook.png" height="20px" width="20px" alt=""></a>
+      <a href="https://www.instagram.com/veleuciliste_u_sibeniku/" target="_blank"><img src="media/instagram.png" height="20px" width="20px" alt=""></a>
+      <a href="https://twitter.com/i/flow/login?redirect_after_login=%2FVUS_HR" target="_blank"><img src="media/twitter.png" height="20px" width="20px" alt=""></a>
+      <a href="#" onclick="window.open('https://www.vus.hr/', '_blank', 'width=600,height=400'); return false;"><img src="media/social.png" height="20px" width="20px" alt=""></a>
+      <a href="https://www.youtube.com/channel/UC62zPZGLRdNP0HeDPYh1mbw" target="_blank"><img src="media/youtube.png" height="20px" width="20px" alt=""></a>
+    </div>
+  </div>
+  <div class="footerNav">
+    <ul>
+      <li><a href="https://www.vus.hr/obavijesti/novosti">Vijesti</a></li>
+      <li><a href="https://www.vus.hr/o_vus/docs">O nama</a></li>
+      <li><a href="https://www.vus.hr/obavijesti/oglasna_ploca">Kontaktirajte Nas</a></li>
+      <li><a href="https://www.vus.hr/o_veleucilistu/djelatnici">Naš Tim</a></li>
+    </ul>
+  </div>
+</div>
+
+
+
+
+
+<script>
+  window.onload = function() {
+    var urlParams = new URLSearchParams(window.location.search);
+    var username = urlParams.get('username');
+
+    if(username) {
+      var username_display = document.getElementById("username_display");
+      username_display.innerText = "Dobrodošli: " + username;
+      username_display.style.display = "block";
+    }
+  }
+
+  function redirectToIndex() {
+    window.location.href = "index.html";
+  }
+
+  function deleteUser() {
+    var username_display = document.getElementById("username_display");
+    var username = username_display.innerText.replace("Dobrodošli: ", "");
+
+    if(username) {
+      if (confirm("Jeste li sigurni da želite obrisati korisnika " + username + "?")) {
+        // Redirektaj na PHP skriptu za brisanje korisnika
+        window.location.href = "delete_user.php";
+      }
+    }
+  }
+
+  function loginUser() {
+    var username = document.getElementById("login_username").value;
+    var password = document.getElementById("login_password").value;
+    
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "select_file.php", true);
+    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    xhr.onreadystatechange = function() {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        if (xhr.responseText.trim() === "success") {
+          document.getElementById("username_display").innerHTML = "Dobrodošli: " + username;
+          document.getElementById("username_display").style.display = "block";
+          document.getElementById("loginModal").style.display = "none";
+          document.getElementById("login_btn").style.display = "none";
+        } else {
+          alert(xhr.responseText);
+        }
+      }
+    };
+    xhr.send("username=" + username + "&password=" + password);
+    return false;
+  }
+</script>
+</body>
+</html>
